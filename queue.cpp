@@ -17,29 +17,17 @@ class queue_yamae {
             queue[m_rear] = num;
         }
 
-        void pop() {
+        int pop() {
             if (empty())
                 return;
-            m_front++;
-
-        }
-
-        int front() {
-            return queue[m_front + 1];
+            return queue[++m_front];
         }
 };
 
 int main() {
     queue_yamae q;
     q.push(1);
-    cout << q.front() << endl;
-
-    if (q.empty())
-        cout << "empty" << endl;
-    else
-        cout << "not empty" << endl;
-    
-    q.pop();
+    cout << q.pop() << endl;
 
     if (q.empty())
         cout << "empty" << endl;
