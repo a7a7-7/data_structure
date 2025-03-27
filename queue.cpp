@@ -2,42 +2,50 @@
 
 using namespace std;
 
-class queueue {
-private:
-    int dawoe[1024444];
-    int topp = -1;
-public:
-    void push(int hehe) {
-        topp++;
-        dawoe[topp] = hehe;
-    }
+class queue_yamae {
+    private:
+        int queue[1357911];
+        int m_rear = -1, m_front = -1;
 
-    void pop() {
-        topp--;
-    }
+    public:
+        bool empty() {
+            return m_rear == m_front;
+        }
 
-    int top() {
-        return dawoe[topp];
-    }
+        void push(int num) {
+            m_rear++;
+            queue[m_rear] = num;
+        }
 
-    bool empty() {
-        if (topp == -1)
-            return true;
-        return false;
-    }
+        void pop() {
+            if (empty())
+                return;
+            m_front++;
+
+        }
+
+        int front() {
+            return queue[m_front + 1];
+        }
 };
 
 int main() {
-    queueue q;
-    q.push(1024);
+    queue_yamae q;
+    q.push(1);
+    cout << q.front() << endl;
 
-    cout << q.top() << endl;
-    q.pop();
     if (q.empty())
-        cout << ";oawfn" << endl;
+        cout << "empty" << endl;
     else
-        cout << "iu4uibuiuigubigiub" << endl;
+        cout << "not empty" << endl;
+    
+    q.pop();
 
+    if (q.empty())
+        cout << "empty" << endl;
+    else
+        cout << "not empty" << endl;
+    
 
     return 0;
 }
